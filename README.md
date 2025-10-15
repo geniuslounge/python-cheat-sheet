@@ -199,16 +199,6 @@ def create_user(name, age, role="user"):
     return {"name": name, "age": age, "role": role}
 ```
 
-### Lambda Functions (Anonymous Functions)
-```python
-square = lambda x: x * x
-add = lambda a, b: a + b
-
-# Using with built-in functions
-numbers = [1, 2, 3, 4, 5]
-squared = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25]
-```
-
 ### Unpacking (Destructuring)
 ```python
 # Tuple unpacking
