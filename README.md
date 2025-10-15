@@ -164,11 +164,35 @@ greet()              # "Hello World"
 greet("Alice")       # "Hello Alice"
 ```
 
-### Functions with Multiple Parameters
+### Docstrings (Function Documentation)
 ```python
 def calculate_area(length, width):
-    """Calculate rectangle area."""
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+    
+    Returns:
+        float: The area of the rectangle
+    
+    Example:
+        >>> calculate_area(5, 3)
+        15.0
+    """
     return length * width
+
+# Access docstring
+help(calculate_area)  # Shows formatted docstring
+print(calculate_area.__doc__)  # Shows raw docstring
+```
+
+### Functions with Multiple Parameters
+```python
+def calculate_volume(length, width, height):
+    """Calculate volume of a rectangular box."""
+    return length * width * height
 
 def create_user(name, age, role="user"):
     """Create user dictionary with optional role."""
