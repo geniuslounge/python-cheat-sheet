@@ -1,6 +1,6 @@
 # Python Cheat Sheet
 
-A comprehensive Python reference guide covering the essential syntax, concepts, and best practices.
+A Python reference guide covering the essential syntax, concepts, and best practices.
 
 ## Getting Started
 *Essential Python basics: comments, variables, data types, and basic operations*
