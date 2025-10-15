@@ -381,7 +381,7 @@ source .venv/bin/activate
 deactivate
 ```
 
-#### uv (Third-party - Used by Genius Lounge)
+#### uv (Third-party environment tool)
 *Note: `uv` is not standard Python but is the preferred environment management tool at Genius Lounge*
 
 ```bash
