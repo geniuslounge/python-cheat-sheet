@@ -387,8 +387,11 @@ deactivate
 ```bash
 # Install uv as a stand-alone package (recommended)
 curl -Ls https://astral.sh/uv/install.sh | bash
+# Or, on Windows (with winget):
+winget install --id astral-sh.uv -e
 
-uv init
+# Initilize your folder as a Python project
+uv init  
 
 # Additional uv benefits:
 uv add package_name        # Add dependency
