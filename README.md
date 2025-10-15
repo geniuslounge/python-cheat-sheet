@@ -47,7 +47,7 @@ print(f"Hello {name}, x={x}")
 print(f"Price: ${y:.2f}")  # Format float to 2 decimal places
 ```
 
-## Naming Conventions (PEP 8)
+## Naming Conventions ([PEP 8](https://peps.python.org/pep-0008/))
 *Python style guide for naming variables, functions, classes, and modules*
 
 | Type                    | Example(s)                          |
@@ -57,7 +57,7 @@ print(f"Price: ${y:.2f}")  # Format float to 2 decimal places
 | Classes                 | `PascalCase` → `class UserProfile:`        |
 | Modules / Packages      | `snake_case` → `import my_module`          |
 | Private/Internal        | `_single_leading_underscore` → `_helper_function()` |
-| Special (dunder)        | `__double_leading_and_trailing__` → `__init__`, `__str__` |
+| [Special (dunder - "double under")](https://peps.python.org/pep-0008/#module-level-dunder-names)        | `__double_leading_and_trailing__` → `__init__`, `__str__` |
 
 
 ## Control Flow
