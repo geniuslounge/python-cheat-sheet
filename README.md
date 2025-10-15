@@ -390,7 +390,7 @@ curl -Ls https://astral.sh/uv/install.sh | bash
 # Or, on Windows (with winget):
 winget install --id astral-sh.uv -e
 
-# Initilize your folder as a Python project
+# Initialize your folder as a Python project
 uv init  
 
 # Additional uv benefits:
