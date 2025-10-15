@@ -47,7 +47,7 @@ print(f"Hello {name}, x={x}")
 print(f"Price: ${y:.2f}")  # Format float to 2 decimal places
 ```
 
-## Naming Conventions (PEP 8)
+## Naming Conventions ([PEP 8](https://peps.python.org/pep-0008/))
 *Python style guide for naming variables, functions, classes, and modules*
 
 | Type                    | Example(s)                          |
@@ -57,7 +57,7 @@ print(f"Price: ${y:.2f}")  # Format float to 2 decimal places
 | Classes                 | `PascalCase` → `class UserProfile:`        |
 | Modules / Packages      | `snake_case` → `import my_module`          |
 | Private/Internal        | `_single_leading_underscore` → `_helper_function()` |
-| Special (dunder)        | `__double_leading_and_trailing__` → `__init__`, `__str__` |
+| [Special (dunder - "double under")](https://peps.python.org/pep-0008/#module-level-dunder-names)        | `__double_leading_and_trailing__` → `__init__`, `__str__` |
 
 
 ## Control Flow
@@ -164,25 +164,39 @@ greet()              # "Hello World"
 greet("Alice")       # "Hello Alice"
 ```
 
-### Functions with Multiple Parameters
+### Docstrings (Function Documentation)
 ```python
 def calculate_area(length, width):
-    """Calculate rectangle area."""
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+    
+    Returns:
+        float: The area of the rectangle
+    
+    Example:
+        >>> calculate_area(5, 3)
+        15.0
+    """
     return length * width
+
+# Access docstring
+help(calculate_area)  # Shows formatted docstring
+print(calculate_area.__doc__)  # Shows raw docstring
+```
+
+### Functions with Multiple Parameters
+```python
+def calculate_volume(length, width, height):
+    """Calculate volume of a rectangular box."""
+    return length * width * height
 
 def create_user(name, age, role="user"):
     """Create user dictionary with optional role."""
     return {"name": name, "age": age, "role": role}
-```
-
-### Lambda Functions (Anonymous Functions)
-```python
-square = lambda x: x * x
-add = lambda a, b: a + b
-
-# Using with built-in functions
-numbers = [1, 2, 3, 4, 5]
-squared = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25]
 ```
 
 ### Unpacking (Destructuring)
