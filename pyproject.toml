@@ -1,0 +1,18 @@
+[project]
+name = "python-cheat-sheet"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cffi==2.0.0",
+    "charset-normalizer==3.4.4",
+    "cryptography==46.0.2",
+    "ipykernel>=7.0.1",
+    "notebook>=7.4.7",
+    "pdfminer-six==20250506",
+    "pdfplumber==0.11.7",
+    "pillow==12.0.0",
+    "pycparser==2.23",
+    "pypdfium2==4.30.0",
+]
