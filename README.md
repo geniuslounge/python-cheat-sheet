@@ -1,8 +1,9 @@
-# Python One-Page Cheat Sheet
+# Python Cheat Sheet
 
 A comprehensive Python reference guide covering the essential syntax, concepts, and best practices.
 
-## Basics
+## Getting Started
+*Essential Python basics: comments, variables, data types, and basic operations*
 
 ### Comments
 ```python
@@ -10,39 +11,57 @@ A comprehensive Python reference guide covering the essential syntax, concepts, 
 """multi-line comment"""
 ```
 
-### Variables
+### Variables and Data Types
 ```python
-x = 10  # int
-y = 3.14  # float
-name = "Fishy"  # str
-flag = True  # bool
+# Numbers
+x = 10          # int (integer)
+y = 3.14        # float (decimal number)
+
+# Text
+name = "Fishy"  # str (string)
+message = 'Hello'
+
+# Boolean
+flag = True     # bool (True or False)
+is_active = False
 ```
 
-### f-strings
+### Check Data Type
+```python
+type(x)         # <class 'int'>
+type(name)      # <class 'str'>
+```
+
+### Type Casting (Converting Between Types)
+```python
+int("5")        # Convert string to integer: 5
+float(5)        # Convert integer to float: 5.0
+str(5)          # Convert number to string: "5"
+bool(1)         # Convert to boolean: True
+bool(0)         # Convert to boolean: False
+```
+
+### f-strings (Formatted Strings)
 ```python
 print(f"Hello {name}, x={x}")
-```
-
-### Type casting
-```python
-int("5"), float(5), str(5), bool(1)
-```
-
-### Check type
-```python
-type(x)
+print(f"Price: ${y:.2f}")  # Format float to 2 decimal places
 ```
 
 ## Naming Conventions (PEP 8)
+*Python style guide for naming variables, functions, classes, and modules*
 
-- **Functions / Variables**: `snake_case` → `total_count`, `get_user()`
-- **Constants**: `UPPER_SNAKE_CASE` → `MAX_SPEED = 120`
-- **Classes**: `PascalCase` → `class UserProfile:`
-- **Modules / Packages**: `snake_case` → `import my_module`
-- **Private/Internal**: `_single_leading_underscore` → `_helper_function()`
-- **Special (dunder)**: `__double_leading_and_trailing__` → `__init__`, `__str__`
+| Type                    | Example(s)                          |
+|-------------------------|-------------------------------------|
+| Functions / Variables   | `snake_case` → `total_count`, `get_user()` |
+| Constants               | `UPPER_SNAKE_CASE` → `MAX_SPEED = 120`     |
+| Classes                 | `PascalCase` → `class UserProfile:`        |
+| Modules / Packages      | `snake_case` → `import my_module`          |
+| Private/Internal        | `_single_leading_underscore` → `_helper_function()` |
+| Special (dunder)        | `__double_leading_and_trailing__` → `__init__`, `__str__` |
+
 
 ## Control Flow
+*Conditional statements and loops for program logic and iteration*
 
 ### If statements
 ```python
@@ -67,122 +86,318 @@ for i, val in enumerate(["a", "b", "c"]):
 ```
 
 ## Data Structures
+*Collections for storing and organizing data: lists, tuples, sets, and dictionaries*
 
-### Lists
+### Lists (Ordered, Mutable)
 ```python
+# Creating lists
 nums = [1, 2, 3]
-nums.append(4)
-nums[0], nums[-1], nums[1:3]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "hello", 3.14, True]
+
+# Accessing elements
+nums[0]         # First element: 1
+nums[-1]        # Last element: 3
+nums[1:3]       # Slice: [2, 3]
+
+# Modifying lists
+nums.append(4)          # Add to end: [1, 2, 3, 4]
+nums.insert(1, 1.5)     # Insert at index: [1, 1.5, 2, 3, 4]
+nums.remove(1.5)        # Remove value: [1, 2, 3, 4]
 ```
 
-### Tuples
+### Tuples (Ordered, Immutable)
 ```python
+# Creating tuples
 coords = (10, 20)
+point = (x, y, z)
+single = (42,)  # Note the comma for single element
+
+# Accessing elements (same as lists)
+coords[0]       # 10
+coords[1]       # 20
 ```
 
-### Sets
+### Sets (Unordered, Unique Elements)
 ```python
+# Creating sets
 colors = {"red", "blue", "green"}
-colors.add("yellow")
+numbers = {1, 2, 3, 3, 4}  # Duplicates removed: {1, 2, 3, 4}
+
+# Set operations
+colors.add("yellow")           # Add element
+colors.remove("red")           # Remove element
+colors.union({"purple"})       # Combine sets
+colors.intersection({"red"})   # Common elements
 ```
 
-### Dictionaries
+### Dictionaries (Key-Value Pairs)
 ```python
-user = {"name": "Matt", "role": "QA"}
-for k, v in user.items():
-    print(k, v)
+# Creating dictionaries
+user = {"name": "Matt", "role": "QA", "age": 30}
+scores = {"Alice": 95, "Bob": 87, "Charlie": 92}
+
+# Accessing values
+user["name"]            # "Matt"
+user.get("email", "N/A")  # Safe access with default
+
+# Modifying dictionaries
+user["email"] = "matt@example.com"  # Add/update
+user.pop("age")         # Remove and return value
+
+# Iterating
+for key, value in user.items():
+    print(f"{key}: {value}")
 ```
 
 ## Functions
+*Reusable code blocks, lambda functions, and parameter handling*
 
+### Basic Functions
 ```python
 def greet(name="World"):
+    """Return a greeting message."""
     return f"Hello {name}"
 
+# Function calls
+greet()              # "Hello World"
+greet("Alice")       # "Hello Alice"
+```
+
+### Functions with Multiple Parameters
+```python
+def calculate_area(length, width):
+    """Calculate rectangle area."""
+    return length * width
+
+def create_user(name, age, role="user"):
+    """Create user dictionary with optional role."""
+    return {"name": name, "age": age, "role": role}
+```
+
+### Lambda Functions (Anonymous Functions)
+```python
 square = lambda x: x * x
+add = lambda a, b: a + b
 
-# Unpacking
-a, b = (1, 2)
-first, *rest = [1, 2, 3, 4]
+# Using with built-in functions
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25]
 ```
 
-## Comprehensions
-
+### Unpacking (Destructuring)
 ```python
-# List comprehension
-squares = [x**2 for x in range(5)]
-even = [x for x in range(10) if x % 2 == 0]
+# Tuple unpacking
+a, b = (1, 2)                    # a=1, b=2
+x, y, z = (10, 20, 30)
 
-# Set comprehension
-unique = {c.lower() for c in "Banana"}
+# List unpacking with rest
+first, *rest = [1, 2, 3, 4]      # first=1, rest=[2, 3, 4]
+first, second, *others = [1, 2, 3, 4, 5]  # first=1, second=2, others=[3, 4, 5]
 
-# Dictionary comprehension
-mapping = {x: x**2 for x in range(3)}
+# Dictionary unpacking
+user_info = {"name": "Alice", "age": 25, "city": "NYC"}
+name, age = user_info["name"], user_info["age"]
 ```
 
-## Strings
+## Comprehensions (Concise Data Structure Creation)
+*One-liner syntax for creating lists, sets, and dictionaries from iterables*
 
+### List Comprehensions
 ```python
-s = "python"
-s.upper(), s.lower(), s.title()
-s.replace("py", "my")
-" ".join(["a", "b", "c"])
-" hi ".strip()
+# Basic: [expression for item in iterable]
+squares = [x**2 for x in range(5)]        # [0, 1, 4, 9, 16]
+
+# With condition: [expression for item in iterable if condition]
+even_numbers = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
+
+# More complex example
+words = ["hello", "world", "python"]
+word_lengths = [len(word) for word in words]  # [5, 5, 6]
 ```
 
-## Built-ins
-
+### Set Comprehensions
 ```python
-len(), sum(), min(), max(), sorted(), reversed()
-any(), all(), zip(), enumerate(), range()
+# Basic: {expression for item in iterable}
+unique_chars = {c.lower() for c in "Banana"}  # {'b', 'a', 'n'}
+
+# With condition
+vowels = {char for char in "programming" if char in "aeiou"}  # {'o', 'a', 'i'}
 ```
 
-## Files
+### Dictionary Comprehensions
+```python
+# Basic: {key: value for item in iterable}
+squares_dict = {x: x**2 for x in range(3)}  # {0: 0, 1: 1, 2: 4}
+
+# From existing data
+words = ["apple", "banana", "cherry"]
+word_lengths = {word: len(word) for word in words}  # {'apple': 5, 'banana': 6, 'cherry': 6}
+```
+
+## String Operations
+*Text manipulation, formatting, and common string methods*
 
 ```python
+text = "Hello World"
+
+# Case conversion
+text.upper()        # "HELLO WORLD"
+text.lower()        # "hello world"
+text.title()        # "Hello World"
+
+# String manipulation
+text.replace("World", "Python")  # "Hello Python"
+text.strip()        # Remove whitespace
+text.split(" ")     # ["Hello", "World"]
+
+# Joining strings
+" ".join(["a", "b", "c"])  # "a b c"
+",".join(["1", "2", "3"])  # "1,2,3"
+
+# String checking
+text.startswith("Hello")   # True
+text.endswith("World")     # True
+"World" in text            # True
+```
+
+## Built-in Functions
+*Essential Python functions for working with data and sequences*
+
+```python
+# Working with sequences
+numbers = [1, 2, 3, 4, 5]
+len(numbers)        # 5
+sum(numbers)        # 15
+min(numbers)        # 1
+max(numbers)        # 5
+sorted([3, 1, 4])   # [1, 3, 4]
+
+# Boolean functions
+any([False, True, False])  # True
+all([True, True, True])    # True
+
+# Iteration helpers
+list(zip([1, 2], ["a", "b"]))  # [(1, 'a'), (2, 'b')]
+list(enumerate(["a", "b"]))    # [(0, 'a'), (1, 'b')]
+list(range(5))                 # [0, 1, 2, 3, 4]
+```
+
+## File Operations
+*Reading from and writing to files with proper file handling*
+
+```python
+# Reading files
 with open("file.txt", "r") as f:
-    data = f.read()
+    content = f.read()      # Read entire file
+    lines = f.readlines()   # Read as list of lines
 
-with open("out.txt", "w") as f:
-    f.write("Hello!")
+# Writing files
+with open("output.txt", "w") as f:
+    f.write("Hello, World!")
+    f.writelines(["Line 1\n", "Line 2\n"])
+
+# File modes: "r" (read), "w" (write), "a" (append), "r+" (read/write)
 ```
 
 ## Error Handling
+*Try-except blocks for managing and recovering from errors gracefully*
 
 ```python
 try:
-    1 / 0
+    result = 10 / 0
 except ZeroDivisionError as e:
-    print("Oops!", e)
+    print(f"Division by zero: {e}")
+except ValueError as e:
+    print(f"Invalid value: {e}")
+except Exception as e:
+    print(f"Unexpected error: {e}")
+else:
+    print("No errors occurred")
 finally:
-    print("Done")
+    print("This always runs")
 ```
 
 ## Common Modules
+*Frequently used Python standard library modules for math, random, system, and data operations*
 
 ```python
 import math, random, os, sys, json, datetime
 
-math.sqrt(9)
-random.choice([1, 2, 3])
-os.getcwd()
-json.dumps({"x": 1})
-datetime.datetime.now()
+# Math operations
+math.sqrt(16)       # 4.0
+math.pi             # 3.14159...
+math.ceil(4.2)      # 5
+
+# Random numbers
+random.randint(1, 10)       # Random integer 1-10
+random.choice([1, 2, 3])    # Random choice from list
+
+# System operations
+os.getcwd()         # Current working directory
+sys.argv            # Command line arguments
+
+# JSON handling
+data = {"name": "Alice", "age": 30}
+json_string = json.dumps(data)  # Convert to JSON string
+parsed_data = json.loads(json_string)  # Parse JSON string
+
+# Date and time
+now = datetime.datetime.now()
+today = datetime.date.today()
 ```
 
-## Virtual Environments
+## Development Tools
+*Virtual environments and development setup for Python projects*
+
+### Virtual Environments
+
+#### Standard Python (Built-in)
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate (macOS/Linux)
+source .venv/bin/activate
+
+# Activate (Windows)
+.venv\Scripts\activate
+
+# Deactivate
+deactivate
+```
+
+#### uv (Third-party - Used by Genius Lounge)
+*Note: `uv` is not standard Python but is the preferred environment management tool at Genius Lounge*
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-.venv\Scripts\activate     # Windows
+# Install uv as a stand-alone package (recommended)
+curl -Ls https://astral.sh/uv/install.sh | bash
+
+uv init
+
+# Additional uv benefits:
+uv add package_name        # Add dependency
+uv remove package_name     # Remove dependency
+uv sync                    # Install dependencies from pyproject.toml
 ```
 
-## Handy Tips
-
+### Useful Tips
 ```python
-print(f"{var=}")
-",".join(map(str, nums))
+# Debug printing
+print(f"{variable=}")  # Prints: variable=value
+
+# Convert list to comma-separated string
+numbers = [1, 2, 3, 4]
+",".join(map(str, numbers))  # "1,2,3,4"
+
+# Swap variables
 a, b = b, a
-if "key" in user: ...
+
+# Check if key exists in dictionary
+if "key" in my_dict:
+    value = my_dict["key"]
+
+# Multiple assignment
+x, y, z = 1, 2, 3
 ```
