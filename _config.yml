@@ -1,7 +1,7 @@
-# GitHub Pages configuration for Modernist theme
-remote_theme: pages-themes/modernist@v0.2.0
+# GitHub Pages configuration
+theme: minima
 plugins:
-  - jekyll-remote-theme
+  - jekyll-feed
 
 # Site configuration
 title: Python Cheat Sheet
