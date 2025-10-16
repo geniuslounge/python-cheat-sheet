@@ -11,5 +11,4 @@ description: A Python reference guide covering essential syntax, concepts, and b
 show_downloads: false
 
 # GitHub Pages settings
-github:
-  repository_url: https://github.com/geniuslounge/python-cheat-sheet/
+repository: geniuslounge/python-cheat-sheet
