@@ -4,11 +4,7 @@ title: Python Cheat Sheet
 description: A Python reference guide covering essential syntax, concepts, and best practices
 ---
 
-# Python Cheat Sheet
-
-A Python reference guide covering the essential syntax, concepts, and best practices.
-
-## Getting Started
+# Getting Started
 *Essential Python basics: comments, variables, data types, and basic operations*
 
 ### Comments
